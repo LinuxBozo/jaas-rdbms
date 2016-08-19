@@ -1,4 +1,4 @@
-JAVAC=/usr/bin/javac
+JAVAC=/usr/bin/env javac -cp $CLASSPATH:lib/spring-security-crypto-4.1.2.RELEASE.jar
 
 all: jar
 
@@ -7,7 +7,7 @@ prepare:
 
 build: prepare src/com/tagish/auth/*
 	$(JAVAC) src/com/tagish/auth/*.java
-	
+
 install: build
 	mkdir -p classes/com/tagish/auth
 	cp src/com/tagish/auth/*.class classes/com/tagish/auth
